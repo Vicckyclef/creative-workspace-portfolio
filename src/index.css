@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary-color: #8b5cf6;
+    --primary-glow: rgba(139, 92, 246, 0.4);
+    --bg-workspace: #111216;
+    --artboard-bg: #18191f;
+    --panel-bg: rgba(22, 23, 29, 0.85);
+    --border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-workspace);
+    color: #e2e4ec;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .font-mono-spec {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Studio Canvas Dot Grid */
+.studio-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.studio-grid-dense {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.2px, transparent 1.2px);
+  background-size: 16px 16px;
+}
+
+/* Custom Scrollbars for studio panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Active tool cursors */
+.cursor-tool-select {
+  cursor: default;
+}
+
+.cursor-tool-hand {
+  cursor: grab;
+}
+
+.cursor-tool-hand:active {
+  cursor: grabbing;
+}
+
+.cursor-tool-bucket {
+  cursor: crosshair;
+}
+
+.cursor-tool-eyedropper {
+  cursor: crosshair;
+}
+
+.cursor-tool-stamp {
+  cursor: cell;
+}
+
+.cursor-tool-note {
+  cursor: text;
+}
+
+.cursor-tool-ruler {
+  cursor: crosshair;
+}
+
+/* When custom cursor is active, hide native OS cursor over the canvas */
+.hide-system-cursor,
+.hide-system-cursor * {
+  cursor: none !important;
+}
+
+/* Pulse animation for live status */
+@keyframes studio-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.15); }
+}
+
+.animate-studio-pulse {
+  animation: studio-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
