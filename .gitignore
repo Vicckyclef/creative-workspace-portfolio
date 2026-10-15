@@ -13,7 +13,7 @@ dist-ssr
 *.local
 
 # Raw uploads folder (synced into public/projects for web serving)
-projects/
+/projects/
 
 # Editor directories and files
 .vscode/*
